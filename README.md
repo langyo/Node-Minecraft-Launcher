@@ -11,7 +11,8 @@
 
 ### 版权说明：
 
-- 整体结构翻译自[MineStudio](https://github.com/MineStudio)的[KMCCC](https://github.com/MineStudio/KMCCC)项目
+- 整体结构及大部分代码翻译自[MineStudio](https://github.com/MineStudio)的[KMCCC](https://github.com/MineStudio/KMCCC)项目
+- 如果你使用本模块，必须标注[KMCCC](https://github.com/MineStudio/KMCCC)的项目地址   <-最重要的一点
 - 部分源码来源于互联网：[UUID](http://www.cnblogs.com/greengnn/archive/2011/10/06/2199719.html)  [StringBuilder](http://blog.csdn.net/lynnlovemin/article/details/11476417) [Map](http://blog.sina.com.cn/s/blog_7e9c5b6801016oyz.html)
 - 请遵守[LGPLv2](http://www.cnblogs.com/findumars/p/3556883.html)协议
 - 本模块由[上古之石](http://www.mcbbs.net/group-324-1.html)的[ncbql](http://www.mcbbs.net/home.php?mod=space&uid=897711)编写
