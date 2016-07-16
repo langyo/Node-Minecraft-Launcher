@@ -1,0 +1,25 @@
+{
+  "name": "JSMCCC",
+  "version": "0.1",
+  "description": "A Node.js prepared by the Minecraft boot module",
+  "author": "ncbql",
+  "maintainers": [
+    {
+      "name": "ncbql",
+      "email": "764798966@qq.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://git.coding.net/ncbql/JSMCCC.git"
+  },
+  "license": "LGPLV2",
+  "keywords": [
+    "minecraft",
+    "launcher"
+  ],
+  "main": "./core/LauncherCore.js",
+  "scripts": {
+    "core": "./core/*.js"
+  }
+}
