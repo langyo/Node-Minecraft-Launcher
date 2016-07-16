@@ -73,11 +73,11 @@ core.Launch({
     Version:core.GetVersion('1.8.8'),
     Authenticator:new OfflineAuthenticator('Steve')
 },data=>{
-//接收Log事件
+    //接收Log事件
 },err=>{
-//接收错误事件
+    //接收错误事件
 },exit=>{
-//接收游戏退出事件
+    //接收游戏退出事件
 });
 ```
 
