@@ -1,78 +1,70 @@
 #JSMCCC
-=====
 
-Ò»¸öÓÃNode.js±àĞ´µÄMinecraftÆô¶¯Ä£¿é
+ä¸€ä¸ªç”¨Node.jsç¼–å†™çš„Minecraftå¯åŠ¨æ¨¡å—
 
-## ±¾Ä£¿éµÄÓÅµã£º
+### æœ¬æ¨¡å—çš„ä¼˜ç‚¹ï¼š
 
-- Æô¶¯¼°µÇÂ½ÑéÖ¤Ä£¿é»¯
-- JavaÒÔ¼°ÏµÍ³ĞÅÏ¢µÄÑ°ÕÒ
-- ×Ô¶¯µÄNativesÎÄ¼ş½âÑ¹
-- Ò»Ğ©ÓĞÓÃµÄ¹¦ÄÜ
+- å¯åŠ¨åŠç™»é™†éªŒè¯æ¨¡å—åŒ–
+- Javaä»¥åŠç³»ç»Ÿä¿¡æ¯çš„å¯»æ‰¾
+- è‡ªåŠ¨çš„Nativesæ–‡ä»¶è§£å‹
+- ä»¥åŠä¸€äº›æœ‰ç”¨çš„åŠŸèƒ½
 
-## °æÈ¨ËµÃ÷£º
+### ç‰ˆæƒè¯´æ˜ï¼š
 
-- ÕûÌå½á¹¹·­Òë×Ô[MineStudio](https://github.com/MineStudio)µÄ[KMCCC](https://github.com/MineStudio/KMCCC)ÏîÄ¿
-- ²¿·ÖÔ´ÂëÀ´Ô´ÓÚ»¥ÁªÍø£º[UUID](http://www.cnblogs.com/greengnn/archive/2011/10/06/2199719.html) [StringBuilder](http://blog.csdn.net/lynnlovemin/article/details/11476417) [Map](http://blog.sina.com.cn/s/blog_7e9c5b6801016oyz.html)
-- Çë×ñÊØ[LGPLv2Ğ­Òé](http://www.cnblogs.com/findumars/p/3556883.html)
+- æ•´ä½“ç»“æ„ç¿»è¯‘è‡ª[MineStudio](https://github.com/MineStudio)çš„[KMCCC](https://github.com/MineStudio/KMCCC)é¡¹ç›®
+- éƒ¨åˆ†æºç æ¥æºäºäº’è”ç½‘ï¼š[UUID](http://www.cnblogs.com/greengnn/archive/2011/10/06/2199719.html) [StringBuilder](http://blog.csdn.net/lynnlovemin/article/details/11476417) [Map](http://blog.sina.com.cn/s/blog_7e9c5b6801016oyz.html)
+- è¯·éµå®ˆ[LGPLv2](http://www.cnblogs.com/findumars/p/3556883.html)åè®®
+- æœ¬æ¨¡å—ç”±[ä¸Šå¤ä¹‹çŸ³](http://www.mcbbs.net/group-324-1.html)çš„ncbqlç¼–å†™
 
-## Ò»Ğ©Àı×Ó~~Àæ×Ó~~
+### ä¸€äº›ä¾‹å­
 
-ÒÔÏÂµÄ`()`±íÊ¾Îª`±ØÑ¡²ÎÊı`£¬`[]`±íÊ¾Îª`¿ÉÑ¡²ÎÊı`
+ä»¥ä¸‹çš„`()`è¡¨ç¤ºä¸º`å¿…é€‰å‚æ•°`ï¼Œ`[]`è¡¨ç¤ºä¸º`å¯é€‰å‚æ•°`
 
------
 
-## ´´½¨Ò»¸öÆô¶¯Æ÷ºËĞÄ
+##### åˆ›å»ºä¸€ä¸ªå¯åŠ¨å™¨æ ¸å¿ƒ
 
 ```javascript
-
 const LauncherCore=require('./core/LauncherCore.js');
 
-var core=new LauncherCore([ÓÎÏ·¸ùÄ¿Â¼],[JAVAÂ·¾¶],[°æ±¾¹¹½¨Æ÷]);
-
+var core=new LauncherCore([æ¸¸æˆæ ¹ç›®å½•],[JAVAè·¯å¾„],[ç‰ˆæœ¬æ„å»ºå™¨]);
 ```
 
-## Ñ°ÕÒ°æ±¾
+##### å¯»æ‰¾ç‰ˆæœ¬
 
 ```javascript
-
 var versions=core.GetVersions();
 
 var version=core.GetVersion('1.8');
-
 ```
 
-## Æô¶¯ÓÎÏ·
+##### å¯åŠ¨æ¸¸æˆ
 
 ```javascript
-
 const LauncherCore=require('./core/LauncherCore.js'),OfflineAuthenticator=require('./authentication/OfflineAuthenticator.js');
-//const YggdrasilLogin=require('./authentication/Yggdrasil.js');    <-Õı°æµÇÂ½¿â
+//const YggdrasilLogin=require('./authentication/Yggdrasil.js');    <-æ­£ç‰ˆç™»é™†åº“
 
 var core=new LauncherCore();
 
 core.Launch({
-    Version:core.GetVersion('1.8.8'),//   <-±ØÌî
-    Authenticator:new OfflineAuthenticator('Steve'),//   <-±ØÌî
-    //Authenticator:new YggdrasilLogin('10000@qq.com','123456'),   <-Õı°æµÇÂ½
-	//MaxMemory:1024,   <-×î´óÄÚ´æ
-	//MinMemory:512,    <-×îĞ¡ÄÚ´æ
+    Version:core.GetVersion('1.8.8'),//   <-å¿…å¡«
+    Authenticator:new OfflineAuthenticator('Steve'),//   <-å¿…å¡«
+    //Authenticator:new YggdrasilLogin('10000@qq.com','123456'),   <-æ­£ç‰ˆç™»é™†
+	//MaxMemory:1024,   <-æœ€å¤§å†…å­˜
+	//MinMemory:512,    <-æœ€å°å†…å­˜
 	/*Server:{
         Address:'www.360.cn',
         Port:25565
-    },   <-×Ô¶¯½øÈë·şÎñÆ÷    */
+    },   <-è‡ªåŠ¨è¿›å…¥æœåŠ¡å™¨    */
 	/*Size:{
         Height:768,
         Width:1280
-    }    <-ÓÎÏ·´°¿Ú´óĞ¡      */
+    }    <-æ¸¸æˆçª—å£å¤§å°      */
 });
-
 ```
 
-## Æô¶¯ÓÎÏ·£¬²¢ÉèÖÃ¼àÌıÆ÷
+##### å¯åŠ¨æ¸¸æˆï¼Œå¹¶è®¾ç½®ç›‘å¬å™¨
 
 ```javascript
-
 const LauncherCore=require('./core/LauncherCore.js'),OfflineAuthenticator=require('./authentication/OfflineAuthenticator.js');
 
 var core=new LauncherCore();
@@ -81,19 +73,17 @@ core.Launch({
     Version:core.GetVersion('1.8.8'),
     Authenticator:new OfflineAuthenticator('Steve')
 },data=>{
-//½ÓÊÕLogÊÂ¼ş
+//æ¥æ”¶Logäº‹ä»¶
 },err=>{
-//½ÓÊÕ´íÎóÊÂ¼ş
+//æ¥æ”¶é”™è¯¯äº‹ä»¶
 },exit=>{
-//½ÓÊÕÓÎÏ·ÍË³öÊÂ¼ş
+//æ¥æ”¶æ¸¸æˆé€€å‡ºäº‹ä»¶
 });
-
 ```
 
-## Æô¶¯ÓÎÏ·£¬²¢»ñÈ¡È±ÉÙ¿â
+##### å¯åŠ¨æ¸¸æˆï¼Œå¹¶è·å–ç¼ºå°‘åº“
 
 ```javascript
-
 const LauncherCore=require('./core/LauncherCore.js'),OfflineAuthenticator=require('./authentication/OfflineAuthenticator.js');
 
 var core=new LauncherCore();
@@ -103,8 +93,7 @@ var re=core.Launch({
     Authenticator:new OfflineAuthenticator('Steve')
 });
 
-if(!re)console.log(re);//Èç¹ûÈ±ÉÙ±Ø±¸µÄ¿â£¬½«»á·µ»ØÒ»¸öÊı×é
-
+if(!re)console.log(re);//å¦‚æœç¼ºå°‘å¿…å¤‡çš„åº“ï¼Œå°†ä¼šè¿”å›ä¸€ä¸ªæ•°ç»„
 ```
 
 # Enjoy!
