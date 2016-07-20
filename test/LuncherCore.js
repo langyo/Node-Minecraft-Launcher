@@ -6,11 +6,11 @@ if(!core.Launch({
 },event=>{
     event.on('data',data=>{
         console.log('log: ',data);
-    });
-    event.on('error',error=>{
+    }).on('error',error=>{
         console.error('error: ',error);
-    });
-    event.on('exit',exit=>{
+    }).on('exit',exit=>{
         console.warn('exit: ',exit);
+    }).on('miss',libraries=>{
+        console.error('missLibraries: ',libraries);
     });
-}))console.error(this.MissLibrary);
+}))console.error('Can not start');

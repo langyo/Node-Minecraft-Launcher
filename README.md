@@ -100,29 +100,44 @@ core.Launch({
 },event=>{
     event.on('data',data=>{
         //接收Log事件
-    });
-    event.on('error',error=>{
+    }).on('error',error=>{
         //接收错误事件
-    });
-    event.on('exit',exit=>{
+    }).on('exit',exit=>{
         //接收游戏退出事件
+    }).on('miss',libraries=>{
+        //接收缺少库事件
     });
 });
 ```
 
-##### 启动游戏，并获取缺少库：
+##### 下载原版游戏文件：
 
 ```javascript
-const LauncherCore=require('jsmccc').LauncherCore,OfflineAuthenticator=require('jsmccc').OfflineAuthenticator;
+const Downloader=require('jsmccc').Downloader.Mojang;//使用Mojang源进行下载
 
-var core=new LauncherCore();
-
-var re=core.Launch({
-    Version:core.GetVersion('1.8.8'),
-    Authenticator:new OfflineAuthenticator('Steve')
+Downloader.GetVersionList(data=>{
+    //返回一串版本Json
+}).on('error',error=>{
+    //接收错误事件
 });
 
-if(!re)console.error(this.MissLibrary);//如果缺少必备的库，将会返回一个数组
+Downloader.DownloadCore((要下载的游戏版本号),(要存储的位置，例如.minecraft/versions/1.8.8/)).on('error',error=>{
+    //接收错误事件
+}).on('location',(location,index,nowLength,length)=>{
+    //接收进度返回事件
+    //参数[location]=>(当前下载百分比),[index]=>(当前下载的文件序号),[nowLength]=>(当前下载文件已下载的字节数),[length]=>(当前下载文件总字节数)
+}).on('end',(index,length)=>{
+    //接收某个文件下载完成事件
+    //[index]=>(当前下载的文件序号),[length]=>(当前下载文件总字节数)
+});
+
+Downloader.DownloadLibraries((启动失败时miss监听器返回的库数组),[返回需要下载的库文件数组，例如libraries=>{}]);//监听器请参照上面的DownloadCore
+
+Downloader.GetAssetsIndex([要获取欲下载资源Json的版本，如果是legacy可填写为null],(要存储的位置，例如.minecraft/assets/),assets=>{
+    //返回一串版本对应的资源文件Json
+});//监听器请参照上面的GetVersionList
+
+Downloader.DownloadAssets((使用GetAssetsIndex方法获取到的Json),(要存储的位置，例如.minecraft/libraries/),[返回需要下载的资源文件数组，例如assets=>{}]);//监听器请参照上面的DownloadCore
 ```
 
 ### 一些废话：

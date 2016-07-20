@@ -1,3 +1,4 @@
 /.git
-/*.bat
-/*.cmd
+*.bat
+*.cmd
+test.js
