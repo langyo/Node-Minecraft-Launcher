@@ -1,10 +1,8 @@
 #minecraft-launcher
 
+[![tnpm](http://npm.taobao.org/badge/v/minecraft-launcher.svg?style=flat-square)](http://npm.taobao.org/package/minecraft-launcher) [![Known Vulnerabilities](https://snyk.io/test/npm/minecraft-launcher/badge.svg)](https://snyk.io/test/npm/minecraft-launcher)
+
 一个用Node.js编写的Minecraft启动模块
-
-[![tnpm](http://npm.taobao.org/badge/v/minecraft-launcher.svg?style=flat-square)](http://npm.taobao.org/package/minecraft-launcher)
-
-[![Known Vulnerabilities](https://snyk.io/test/npm/minecraft-launcher/badge.svg)](https://snyk.io/test/npm/minecraft-launcher)
 
 ### 本模块Coding项目地址：
 
