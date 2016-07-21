@@ -1,10 +1,14 @@
-#JSMCCC
+#minecraft-launcher
 
 一个用Node.js编写的Minecraft启动模块
 
+[![tnpm](http://npm.taobao.org/badge/v/minecraft-launcher.svg?style=flat-square)](http://npm.taobao.org/package/minecraft-launcher)
+
+[![Known Vulnerabilities](https://snyk.io/test/npm/minecraft-launcher/badge.svg)](https://snyk.io/test/npm/minecraft-launcher)
+
 ### 本模块Coding项目地址：
 
-[https://coding.net/u/ncbql/p/JSMCCC/git](https://coding.net/u/ncbql/p/JSMCCC/git)
+[https://coding.net/u/ncbql/p/minecraft-launcher/git](https://coding.net/u/ncbql/p/minecraft-launcher/git)
 
 ### 先宣传一把：
 
@@ -28,7 +32,7 @@
 
 ### 安装模块：
 
-    $ npm install jsmccc
+    $ npm install minecraft-launcher
 
 ### 一些例子：
 
@@ -36,10 +40,11 @@
 
 ###### ~~可以，这很梨子~~
 
+
 ##### 创建一个启动器核心：
 
 ```javascript
-const LauncherCore=require('jsmccc').LauncherCore;
+const LauncherCore=require('minecraft-launcher').LauncherCore;
 
 var core=new LauncherCore([游戏根目录],[JAVA路径],[版本构建器]);
 ```
@@ -55,8 +60,8 @@ var version=core.GetVersion('1.8');
 ##### 启动游戏：
 
 ```javascript
-const LauncherCore=require('jsmccc').LauncherCore,OfflineAuthenticator=require('jsmccc').OfflineAuthenticator;
-//const YggdrasilLogin=require('jsmccc').Yggdrasil;    <-正版登陆库
+const LauncherCore=require('minecraft-launcher').LauncherCore,OfflineAuthenticator=require('minecraft-launcher').OfflineAuthenticator;
+//const YggdrasilLogin=require('minecraft-launcher').Yggdrasil;    <-正版登陆库
 
 var core=new LauncherCore();
 
@@ -90,7 +95,7 @@ try{
 ##### 启动游戏，并设置监听器：
 
 ```javascript
-const LauncherCore=require('jsmccc').LauncherCore,OfflineAuthenticator=require('jsmccc').OfflineAuthenticator;
+const LauncherCore=require('minecraft-launcher').LauncherCore,OfflineAuthenticator=require('minecraft-launcher').OfflineAuthenticator;
 
 var core=new LauncherCore();
 
@@ -113,7 +118,7 @@ core.Launch({
 ##### 下载原版游戏文件：
 
 ```javascript
-const Downloader=require('jsmccc').Downloader.Mojang;//使用Mojang源进行下载
+const Downloader=require('minecraft-launcher').Downloader.Mojang;//使用Mojang源进行下载
 
 Downloader.GetVersionList(data=>{
     //返回一串版本Json
