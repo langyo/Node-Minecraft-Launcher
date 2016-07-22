@@ -36,8 +36,7 @@
 
 以下的`()`表示为`必选参数`，`[]`表示为`可选参数`
 
-###### ~~可以，这很梨子~~
-
+###### ~~可以，这很梨子~~<br>
 
 ##### 创建一个启动器核心：
 
@@ -141,6 +140,18 @@ Downloader.GetAssetsIndex([要获取欲下载资源Json的版本，如果是lega
 });//监听器请参照上面的GetVersionList
 
 Downloader.DownloadAssets((使用GetAssetsIndex方法获取到的Json),(要存储的位置，例如.minecraft/libraries/),[返回需要下载的资源文件数组，例如assets=>{}]);//监听器请参照上面的DownloadCore
+```
+
+##### 自动安装Forge：
+
+```javascript
+const ForgeInstaller=require('minecraft-launcher').Installer.Forge;
+
+ForgeInstaller((下载到的Installer.jar文件目录),(游戏versions目录),[自定义安装的游戏版本名],[原版核心文件版本名]).on('error',error=>{
+    //接收错误事件
+}).on('finish',()=>{
+    //接收安装完成事件
+});
 ```
 
 ### 一些废话：

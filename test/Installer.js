@@ -1,0 +1,2 @@
+const ForgeInstaller=require('minecraft-launcher').Installer.Forge;
+ForgeInstaller('forge-1.9-12.16.0.1766-1.9-installer.jar','.minecraft/versions').on('error',error=>console.log('Error: ',error)).on('finish',()=>console.log('Install Finish!'));
