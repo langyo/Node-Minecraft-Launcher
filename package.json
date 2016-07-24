@@ -1,6 +1,6 @@
 {
   "name": "minecraft-launcher",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A Node.js prepared by the Minecraft boot module",
   "author": "ncbql",
   "maintainers": [
@@ -23,6 +23,6 @@
   "dependencies": {
     "node-fetch": "1.5.3",
     "simplesync": "0.0.4",
-    "unzip": "0.1.11"
+    "unzipper": "0.3.0"
   }
 }

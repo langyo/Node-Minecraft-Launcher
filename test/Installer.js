@@ -1,2 +1,3 @@
-const ForgeInstaller=require('minecraft-launcher').Installer.Forge;
+const ForgeInstaller=require('minecraft-launcher').Installer.Forge,LiteLoaderInstaller=require('minecraft-launcher').Installer.LiteLoader;
 ForgeInstaller('forge-1.9-12.16.0.1766-1.9-installer.jar','.minecraft/versions').on('error',error=>console.log('Error: ',error)).on('finish',()=>console.log('Install Finish!'));
+LiteLoaderInstaller('liteloader-installer-1.8.0-00.jar','.minecraft/versions').on('error',error=>console.log('Error: ',error)).on('finish',()=>console.log('Install Finish!'));

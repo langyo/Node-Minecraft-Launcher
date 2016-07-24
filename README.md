@@ -16,8 +16,12 @@
 ### 本模块的优点：
 
 - 启动及登陆验证模块化
+- 支持[BeeLogin](http://www.mcbbs.net/thread-457773-1-1.html)外置登入
+- 实现了windows下的user32.dll的部分功能
 - Java以及系统信息的寻找
 - 自动的Natives文件解压
+- 下载MC文件更加方便
+- 自动化的Forge和LiteLoader安装
 - 以及一些有用的功能
 
 ### 版权说明：
@@ -57,8 +61,9 @@ var version=core.GetVersion('1.8');
 ##### 启动游戏：
 
 ```javascript
-const LauncherCore=require('minecraft-launcher').LauncherCore,OfflineAuthenticator=require('minecraft-launcher').OfflineAuthenticator;
-//const YggdrasilLogin=require('minecraft-launcher').Yggdrasil;    <-正版登陆库
+const LauncherCore=require('minecraft-launcher').LauncherCore,OfflineAuthenticator=require('minecraft-launcher').Authenticator.Offline;
+//const YggdrasilLogin=require('minecraft-launcher').Authenticator.Yggdrasil;    <-正版登陆库
+//const BeeLogin=require('minecraft-launcher').Authenticator.BeeLogin;    <-BeeLogin登陆库
 
 var core=new LauncherCore();
 
@@ -66,6 +71,7 @@ core.Launch({
     Version:core.GetVersion('1.8.8'),//   <-必填
     Authenticator:new OfflineAuthenticator('Steve'),//   <-必填
     //Authenticator:new YggdrasilLogin('10000@qq.com','123456'),   <-正版登陆
+    //Authenticator:new BeeLogin((BeeLogin网页端根目录),(玩家游戏名或邮箱),(玩家密码),[若采用BeeLoginMOD请填写.minecradr下的config文件夹完整目录],[是否使用正版登入]),
 	//MaxMemory:1024,   <-最大内存
 	//MinMemory:512,    <-最小内存
 	/*Server:{
@@ -92,7 +98,7 @@ try{
 ##### 启动游戏，并设置监听器：
 
 ```javascript
-const LauncherCore=require('minecraft-launcher').LauncherCore,OfflineAuthenticator=require('minecraft-launcher').OfflineAuthenticator;
+const LauncherCore=require('minecraft-launcher').LauncherCore,OfflineAuthenticator=require('minecraft-launcher').Authenticator.Offline;
 
 var core=new LauncherCore();
 
@@ -142,22 +148,51 @@ Downloader.GetAssetsIndex([要获取欲下载资源Json的版本，如果是lega
 Downloader.DownloadAssets((使用GetAssetsIndex方法获取到的Json),(要存储的位置，例如.minecraft/libraries/),[返回需要下载的资源文件数组，例如assets=>{}]);//监听器请参照上面的DownloadCore
 ```
 
-##### 自动安装Forge：
+##### 自动安装Forge/LiteLoader：
 
 ```javascript
-const ForgeInstaller=require('minecraft-launcher').Installer.Forge;
+const ForgeInstaller=require('minecraft-launcher').Installer.Forge,LiteLoaderInstaller=require('minecraft-launcher').Installer.LiteLoader;
 
 ForgeInstaller((下载到的Installer.jar文件目录),(游戏versions目录),[自定义安装的游戏版本名],[原版核心文件版本名]).on('error',error=>{
     //接收错误事件
 }).on('finish',()=>{
     //接收安装完成事件
 });
+
+ForgeInstaller((下载到的Installer.jar文件目录),(游戏versions目录或mods文件夹),[如果安装了Forge推荐填写true，并修改前一个参数为版本对应的mods文件夹],[自定义安装的游戏版本名],[原版核心文件版本名]);//监听器请参考Forge自动安装
+```
+
+##### 工具类：
+
+```javascript
+const Tools=require('./tools/Tools.js'),SystemTools=require('./tools/SystemTools.js');
+
+var UserDll=Tools.GetUserDll();//获取User32类库，如果不是windows将会返回false，本部分由Ivan提供，仅支持node.js 6.x的版本
+
+SystemTools.FindJava();//寻找Java，并返回已安装的Java数组
+
+SystemTools.GetArch();//获取系统位数
+
+UserDll.GetHandle((窗口标题));//使用已知的窗口标题获取窗口句柄
+
+UserDll.ChangeWindowTitle((窗口句柄),(窗口标题));//使用已知的窗口句柄修改窗口标题
+
+UserDll.ListProcesses((完整的进程名));使用已知的进程名获取PID数组
+
+UserDll.MinimizeWindow((窗口句柄));//最小化窗口，失败返回flase
+
+UserDll.MaximizeWindow((窗口句柄));//最大化窗口，失败返回flase
+
+UserDll.WinPostMessage((窗口句柄),(类型),0,0);//投递信息至某个窗口，可参考http://blog.csdn.net/yanruichong/article/details/6751209
+
+UserDll.RegHotKey((窗口句柄),(热键标识符),(功能键),(键代码));//注册热键，可参考http://baike.so.com/doc/5906219-6119121.html
 ```
 
 ### 一些废话：
 
 - 估计用Node.js写[启动器](http://www.mcbbs.net/forum.php?mod=viewthread&tid=601390)的除了[Srar](http://www.mcbbs.net/home.php?mod=space&uid=1129071)这大佬以外没人了滑稽
 - 反正绑个node-webkit都50mb了
+- os.arch返回值居然和node的版本有关，醉了醉了
 - 如果你有更好的代码或者意见可以fork修改代码并进行pull
 - 最后欢迎收藏/关注/fork
 - ~~另外找人一起搞启动器，愿意的私聊QQ:764798966，并附上[启动器合作]~~

@@ -1,4 +1,4 @@
-const LauncherCore=require('jsmccc').LauncherCore,OfflineAuthenticator=require('jsmccc').OfflineAuthenticator;
+const LauncherCore=require('minecraft-launcher').LauncherCore,OfflineAuthenticator=require('minecraft-launcher').Authenticator.Offline;
 var core=new LauncherCore();
 if(!core.Launch({
     Version:core.GetVersion('1.8.8'),

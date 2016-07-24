@@ -1,11 +1,18 @@
-module.exports.SystemTools=require('./lib/tools/SystemTools.js');
-module.exports.HttpRequester=require('./lib/tools/HttpRequester.js');
+module.exports.Tools={
+    System=require('./lib/tools/SystemTools.js'),
+    Tools=require('./lib/tools/Tools.js'),
+    HttpRequester=require('./lib/tools/HttpRequester.js')
+};
 module.exports.LauncherCore=require('./lib/core/LauncherCore.js');
-module.exports.OfflineAuthenticator=require('./lib/authentication/OfflineAuthenticator.js');
-module.exports.Yggdrasil=require('./lib/authentication/Yggdrasil.js');
+module.exports.Authenticator={
+    Offline=require('./lib/authentication/OfflineAuthenticator.js'),
+    Yggdrasil=require('./lib/authentication/Yggdrasil.js'),
+    BeeLogin=require('./lib/authentication/BeeLogin.js')
+};
 module.exports.Downloader={
     Mojang:require('./lib/downloader/Mojang.js')
 };
 module.exports.Installer={
-    Forge:require('./lib/tools/ForgeInstaller.js')
+    Forge:require('./lib/tools/Installer/Forge.js'),
+    LiteLoader:require('./lib/tools/Installer/LiteLoader.js')
 };
