@@ -85,16 +85,6 @@ core.Launch({
 });
 ```
 
-> 启动游戏时，最好加个try，例如：
-
-```javascript
-try{
-    core.Launch(opt);
-}catch(e){
-    console.error(e);
-}
-```
-
 ##### 启动游戏，并设置监听器：
 
 ```javascript
