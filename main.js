@@ -10,7 +10,9 @@ module.exports.Authenticator={
     BeeLogin:require('./lib/authentication/BeeLogin.js')
 };
 module.exports.Downloader={
-    Mojang:require('./lib/downloader/Mojang.js')
+    Mojang:require('./lib/downloader/Mojang.js'),
+    BMCLAPI:require('./lib/downloader/BMCLAPI.js'),
+    LiteLoader:require('./lib/downloader/LiteLoader.js')
 };
 module.exports.Installer={
     Forge:require('./lib/tools/Installer/Forge.js'),

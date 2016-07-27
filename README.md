@@ -20,7 +20,7 @@
 - 实现了windows下的user32.dll的部分功能
 - Java以及系统信息的寻找
 - 自动的Natives文件解压
-- 下载MC文件更加方便
+- 下载MC原版文件/Forge/LiteLoader更加方便
 - 自动化的Forge和LiteLoader安装
 - 以及一些有用的功能
 
@@ -28,6 +28,7 @@
 
 - 整体结构及大部分代码翻译自[MineStudio](https://github.com/MineStudio)的[KMCCC](https://github.com/MineStudio/KMCCC)项目
 - 如果你使用本模块，必须标注[KMCCC](https://github.com/MineStudio/KMCCC)的项目地址   <-最重要的一点
+- 如果使用了[@bangbang93](http://weibo.com/bangbang93)的[BMCLAPI](http://bmclapi2.bangbang93.com/)下载源，必须标注BMCLAPI，具体参考[BMCLAPIdoc](http://bmclapi2.bangbang93.com/doc/)，如果[@bangbang93](http://weibo.com/bangbang93)不允许我实现的话，可联系我删除
 - 部分源码来源于互联网：[UUID](http://www.cnblogs.com/greengnn/archive/2011/10/06/2199719.html)  [StringBuilder](http://blog.csdn.net/lynnlovemin/article/details/11476417) [Map](http://blog.sina.com.cn/s/blog_7e9c5b6801016oyz.html)
 - 请遵守[LGPLv2](http://www.cnblogs.com/findumars/p/3556883.html)协议
 - 本模块由[ncbql](http://www.mcbbs.net/home.php?mod=space&uid=897711)编写
@@ -136,6 +137,20 @@ Downloader.GetAssetsIndex([要获取欲下载资源Json的版本，如果是lega
 });//监听器请参照上面的GetVersionList
 
 Downloader.DownloadAssets((使用GetAssetsIndex方法获取到的Json),(要存储的位置，例如.minecraft/libraries/),[返回需要下载的资源文件数组，例如assets=>{}]);//监听器请参照上面的DownloadCore
+```
+
+##### 下载Forge/LiteLoader：
+
+```javascript
+const Downloader=require('minecraft-launcher').Downloader.BMCLAPI,LiteLoader=require('minecraft-launcher').Downloader.LiteLoader;//使用BMCLAPI源和LiteLoader源进行下载，监听器可参考上面的原版文件下载
+
+Downloader.GetForgeVersionList((回调事件),[版本]);
+
+Downloader.DownloadForge((MC版本),(Forge版本),(Forge带后缀的文件全名),(保存位置),[Forge分支]);
+
+LiteLoader.GetVersionList((回调事件));
+
+LiteLoader.Download((如果获取的json的stream项为SNAPSHOT请填写为true),(MC版本),(保存位置));
 ```
 
 ##### 自动安装Forge/LiteLoader：
