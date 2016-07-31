@@ -73,6 +73,7 @@ core.Launch({
     Authenticator:new OfflineAuthenticator('Steve'),//   <-必填
     //Authenticator:new YggdrasilLogin('10000@qq.com','123456'),   <-正版登陆
     //Authenticator:new BeeLogin((BeeLogin网页端根目录),(玩家游戏名或邮箱),(玩家密码),[若采用BeeLoginMOD请填写.minecradr下的config文件夹完整目录],[是否使用正版登入]),
+    //VersionType:'minecraft-launcher',    <-MC主界面游戏版本右边的文字
 	//MaxMemory:1024,   <-最大内存
 	//MinMemory:512,    <-最小内存
 	/*Server:{
@@ -97,7 +98,9 @@ core.Launch({
     Version:core.GetVersion('1.8.8'),
     Authenticator:new OfflineAuthenticator('Steve')
 },event=>{
-    event.on('data',data=>{
+    event.on('launching',()=>{
+        //接收正在启动事件
+    }).on('data',data=>{
         //接收Log事件
     }).on('error',error=>{
         //接收错误事件

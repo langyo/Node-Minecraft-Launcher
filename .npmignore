@@ -2,3 +2,5 @@
 *.bat
 *.cmd
 run.js
+logs
+*.log
