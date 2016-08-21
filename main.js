@@ -12,9 +12,11 @@ module.exports.Authenticator={
 module.exports.Downloader={
     Mojang:require('./lib/downloader/Mojang.js'),
     BMCLAPI:require('./lib/downloader/BMCLAPI.js'),
-    LiteLoader:require('./lib/downloader/LiteLoader.js')
+    LiteLoader:require('./lib/downloader/LiteLoader.js'),
+    Java:require('./lib/downloader/Java.js')
 };
 module.exports.Installer={
     Forge:require('./lib/tools/Installer/Forge.js'),
-    LiteLoader:require('./lib/tools/Installer/LiteLoader.js')
+    LiteLoader:require('./lib/tools/Installer/LiteLoader.js'),
+    Java:require('./lib/tools/Installer/Java.js')
 };

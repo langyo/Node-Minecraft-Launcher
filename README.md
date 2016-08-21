@@ -20,8 +20,8 @@
 - 实现了windows下的user32.dll的部分功能
 - Java以及系统信息的寻找
 - 自动的Natives文件解压
-- 下载MC原版文件/Forge/LiteLoader更加方便
-- 自动化的Forge和LiteLoader安装
+- 下载JAVA/MC原版文件/Forge/LiteLoader更加方便
+- 自动化的JAVA/Forge/LiteLoader安装
 - 以及一些有用的功能
 
 ### 版权说明：
@@ -29,8 +29,9 @@
 - 整体结构及大部分代码翻译自[MineStudio](https://github.com/MineStudio)的[KMCCC](https://github.com/MineStudio/KMCCC)项目
 - 如果你使用本模块，必须标注[KMCCC](https://github.com/MineStudio/KMCCC)的项目地址   <-最重要的一点
 - 如果使用了[@bangbang93](http://weibo.com/bangbang93)的[BMCLAPI](http://bmclapi2.bangbang93.com/)下载源，必须标注BMCLAPI，具体参考[BMCLAPIdoc](http://bmclapi2.bangbang93.com/doc/)，如果[@bangbang93](http://weibo.com/bangbang93)不允许我实现的话，可联系我删除
-- 部分源码来源于互联网：[UUID](http://www.cnblogs.com/greengnn/archive/2011/10/06/2199719.html)  [StringBuilder](http://blog.csdn.net/lynnlovemin/article/details/11476417) [Map](http://blog.sina.com.cn/s/blog_7e9c5b6801016oyz.html)
-- 请遵守[LGPLv2](http://www.cnblogs.com/findumars/p/3556883.html)协议
+- 部分代码参考了[Srar](https://github.com/Srar)的[MinecraftLaunchCoreUI](https://github.com/Srar/MinecraftLaunchCoreUI)项目
+- 部分源码来源于互联网：[UUID](http://www.cnblogs.com/greengnn/archive/2011/10/06/2199719.html)  [Map](http://blog.sina.com.cn/s/blog_7e9c5b6801016oyz.html)
+- 请遵守[LGPLv2](http://opensource.org/licenses/LGPL-2.0)协议
 - 本模块由[ncbql](http://www.mcbbs.net/home.php?mod=space&uid=897711)编写
 
 ### 安装模块：
@@ -142,10 +143,10 @@ Downloader.GetAssetsIndex([要获取欲下载资源Json的版本，如果是lega
 Downloader.DownloadAssets((使用GetAssetsIndex方法获取到的Json),(要存储的位置，例如.minecraft/libraries/),[返回需要下载的资源文件数组，例如assets=>{}]);//监听器请参照上面的DownloadCore
 ```
 
-##### 下载Forge/LiteLoader：
+##### 下载Forge/LiteLoader/Java：
 
 ```javascript
-const Downloader=require('minecraft-launcher').Downloader.BMCLAPI,LiteLoader=require('minecraft-launcher').Downloader.LiteLoader;//使用BMCLAPI源和LiteLoader源进行下载，监听器可参考上面的原版文件下载
+const Downloader=require('minecraft-launcher').Downloader.BMCLAPI,LiteLoader=require('minecraft-launcher').Downloader.LiteLoader,Java=require('minecraft-launcher').Downloader.Java;//使用BMCLAPI源和LiteLoader源进行下载，监听器可参考上面的原版文件下载
 
 Downloader.GetForgeVersionList((回调事件),[版本]);
 
@@ -154,12 +155,14 @@ Downloader.DownloadForge((MC版本),(Forge版本),(Forge带后缀的文件全名
 LiteLoader.GetVersionList((回调事件));
 
 LiteLoader.Download((如果获取的json的stream项为SNAPSHOT请填写为true),(MC版本),(保存位置));
+
+Java((下载保存文件名),(下载类对象,返回参数，填入安装时的参数中)=>{});
 ```
 
 ##### 自动安装Forge/LiteLoader：
 
 ```javascript
-const ForgeInstaller=require('minecraft-launcher').Installer.Forge,LiteLoaderInstaller=require('minecraft-launcher').Installer.LiteLoader;
+const ForgeInstaller=require('minecraft-launcher').Installer.Forge,LiteLoaderInstaller=require('minecraft-launcher').Installer.LiteLoader,JavaInstaller=require('minecraft-launcher').Installer.Java;
 
 ForgeInstaller((下载到的Installer.jar文件目录),(游戏versions目录),[自定义安装的游戏版本名],[原版核心文件版本名]).on('error',error=>{
     //接收错误事件
@@ -168,6 +171,8 @@ ForgeInstaller((下载到的Installer.jar文件目录),(游戏versions目录),[�
 });
 
 ForgeInstaller((下载到的Installer.jar文件目录),(游戏versions目录或mods文件夹),[如果安装了Forge推荐填写true，并修改前一个参数为版本对应的mods文件夹],[自定义安装的游戏版本名],[原版核心文件版本名]);//监听器请参考Forge自动安装
+
+JavaInstaller((下载到的Java安装包),(下载返回参数),(安装完毕回调));
 ```
 
 ##### 工具类：
