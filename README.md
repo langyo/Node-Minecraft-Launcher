@@ -156,7 +156,7 @@ LiteLoader.GetVersionList((回调事件));
 
 LiteLoader.Download((如果获取的json的stream项为SNAPSHOT请填写为true),(MC版本),(保存位置));
 
-Java((下载保存文件名),(下载类对象,返回参数，填入安装时的参数中)=>{});
+Java((下载保存文件名),(下载类对象,返回参数,填入安装时的参数中)=>{});
 ```
 
 ##### 自动安装Forge/LiteLoader：
