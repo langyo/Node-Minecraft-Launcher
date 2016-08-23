@@ -101,8 +101,10 @@ core.Launch({
 },event=>{
     event.on('launching',()=>{
         //接收正在启动事件
-    }).on('data',data=>{
+    }).on('log_data',data=>{
         //接收Log事件
+    }).on('log_error',error=>{
+        //接受游戏错误事件
     }).on('error',error=>{
         //接收错误事件
     }).on('exit',exit=>{
