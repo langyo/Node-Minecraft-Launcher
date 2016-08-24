@@ -1,6 +1,6 @@
 {
   "name": "minecraft-launcher",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "A Node.js prepared by the Minecraft boot module",
   "author": "ncbql",
   "maintainers": [
