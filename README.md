@@ -1,6 +1,6 @@
-#minecraft-launcher
+# minecraft-launcher
 
-[![tnpm](http://npm.taobao.org/badge/v/minecraft-launcher.svg?style=flat-square)](http://npm.taobao.org/package/minecraft-launcher) [![Known Vulnerabilities](https://snyk.io/test/npm/minecraft-launcher/badge.svg)](https://snyk.io/test/npm/minecraft-launcher)
+[![tnpm](http://npm.taobao.org/badge/v/minecraft-launcher.svg?style=flat-square)](http://npm.taobao.org/package/minecraft-launcher)
 
 一个用Node.js编写的Minecraft启动模块
 
@@ -30,7 +30,7 @@
 - 如果你使用本模块，必须标注[KMCCC](https://github.com/MineStudio/KMCCC)的项目地址   <-最重要的一点
 - 如果使用了[@bangbang93](http://weibo.com/bangbang93)的[BMCLAPI](http://bmclapi2.bangbang93.com/)下载源，必须标注BMCLAPI，具体参考[BMCLAPIdoc](http://bmclapi2.bangbang93.com/doc/)，如果[@bangbang93](http://weibo.com/bangbang93)不允许我实现的话，可联系我删除
 - 部分代码参考了[Srar](https://github.com/Srar)的[MinecraftLaunchCoreUI](https://github.com/Srar/MinecraftLaunchCoreUI)项目
-- 部分源码来源于互联网：[UUID](http://www.cnblogs.com/greengnn/archive/2011/10/06/2199719.html)  [Map](http://blog.sina.com.cn/s/blog_7e9c5b6801016oyz.html)
+- 部分源码来源于互联网：[UUID](http://www.cnblogs.com/greengnn/archive/2011/10/06/2199719.html)
 - 请遵守[LGPLv2](http://opensource.org/licenses/LGPL-2.0)协议
 - 本模块由[ncbql](http://www.mcbbs.net/home.php?mod=space&uid=897711)编写
 
@@ -49,7 +49,7 @@
 ```javascript
 const LauncherCore=require('minecraft-launcher').LauncherCore;
 
-var core=new LauncherCore([游戏根目录],[JAVA路径],[版本构建器]);
+var core=LauncherCore.create([游戏根目录],[JAVA路径],[版本构建器]);
 ```
 
 ##### 寻找版本：
@@ -67,7 +67,9 @@ const LauncherCore=require('minecraft-launcher').LauncherCore,OfflineAuthenticat
 //const YggdrasilLogin=require('minecraft-launcher').Authenticator.Yggdrasil;    <-正版登陆库
 //const BeeLogin=require('minecraft-launcher').Authenticator.BeeLogin;    <-BeeLogin登陆库
 
-var core=new LauncherCore();
+var core=LauncherCore.create();
+
+if(!core)return;// 判断是否成功创建
 
 core.Launch({
     Version:core.GetVersion('1.8.8'),//   <-必填
@@ -93,27 +95,27 @@ core.Launch({
 ```javascript
 const LauncherCore=require('minecraft-launcher').LauncherCore,OfflineAuthenticator=require('minecraft-launcher').Authenticator.Offline;
 
-var core=new LauncherCore();
+var core=LauncherCore.create();
+
+if(!core)return;
 
 core.Launch({
     Version:core.GetVersion('1.8.8'),
     Authenticator:new OfflineAuthenticator('Steve')
-},event=>{
-    event.on('launching',()=>{
-        //接收正在启动事件
-    }).on('log_data',data=>{
-        //接收Log事件
-    }).on('log_error',error=>{
-        //接受游戏错误事件
-    }).on('error',error=>{
-        //接收错误事件
-    }).on('exit',exit=>{
-        //接收游戏退出事件
-    }).on('miss',libraries=>{
-        //接收缺少库事件
-    }).on('launched',()=>{
-        //接收启动完毕事件
-    });
+}).on('launching',()=>{
+    //接收正在启动事件
+}).on('log_data',data=>{
+    //接收Log事件
+}).on('log_error',error=>{
+    //接受游戏错误事件
+}).on('error',error=>{
+    //接收错误事件
+}).on('exit',exit=>{
+    //接收游戏退出事件
+}).on('miss',libraries=>{
+    //接收缺少库事件
+}).on('launched',()=>{
+    //接收启动完毕事件
 });
 ```
 
