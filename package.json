@@ -1,6 +1,6 @@
 {
   "name": "minecraft-launcher",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "description": "A Node.js prepared by the Minecraft boot module",
   "author": "ncbql",
   "maintainers": [
@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://coding.net/u/ncbql/p/minecraft-launcher/git"
+    "url": "https://git.coding.net/ncbql/minecraft-launcher.git"
   },
   "license": "LGPL-2.0",
   "keywords": [
@@ -20,8 +20,13 @@
     "install": "node test"
   },
   "dependencies": {
-    "node-fetch": "1.5.3",
-    "adm-zip": "0.4.7",
-    "node-targz": "0.1.2"
+    "node-fetch": "~1.6.3",
+    "bluebird": "~3.4.6",
+    "co": "~4.6.0",
+    "co-fs": "~1.2.0",
+    "co-exec": "~1.1.0",
+    "adm-zip": "~0.4.7",
+    "node-targz": "~0.2.0",
+    "uuid-by-string": "~0.1.1"
   }
 }
