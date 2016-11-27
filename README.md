@@ -20,7 +20,7 @@
 - 自动的Natives文件解压
 - 自动化的JAVA/Forge/LiteLoader安装
 - 以及一些有用的功能
-- ~~下载JAVA/MC原版文件/Forge/LiteLoader更加方便~~
+- 下载JAVA/MC原版文件/Forge/LiteLoader更加方便
 - ~~支持[BeeLogin](http://www.mcbbs.net/thread-457773-1-1.html)外置登入~~
 
 ### 版权说明：
@@ -33,6 +33,7 @@
 ### 安装模块：
 
     $ npm install minecraft-launcher
+    $ npm install co
 
 ### 一些例子：
 
@@ -71,7 +72,7 @@ const co = require('co'),
     ML = require('minecraft-launcher'),
     LauncherCore = ML.LauncherCore,
     Authenticator = ML.Authenticator.Offline;
-    // Yggdrasil = L.Authenticator.Yggdrasil;  <= 正版登陆
+    // Yggdrasil = ML.Authenticator.Yggdrasil;  <= 正版登陆
 
 co(function* () {
     var core = yield LauncherCore();
@@ -137,6 +138,7 @@ co(function* () {
 
 ### 一些废话：
 
+- 下载部分翻代码好了，反正没人用
 - 用co重新改了一遍，简直要命
 - 估计用Node.js写[启动器](http://www.mcbbs.net/forum.php?mod=viewthread&tid=601390)的除了[Srar](http://www.mcbbs.net/home.php?mod=space&uid=1129071)这大佬以外没人了滑稽
 - 反正绑个node-webkit都50mb了

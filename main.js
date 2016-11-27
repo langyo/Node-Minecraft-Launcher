@@ -2,7 +2,6 @@
 module.exports = {
     Tools: {
         System: require('./lib/tools/SystemTools.js'),
-        Tools: require('./lib/tools/Tools.js'),
         HttpRequester: require('./lib/tools/HttpRequester.js')
     },
     LauncherCore: require('./lib/core/LauncherCore.js'),
@@ -11,7 +10,6 @@ module.exports = {
         Yggdrasil: require('./lib/authentication/Yggdrasil.js')
     },
     Downloader: {
-        Mojang: require('./lib/downloader/Mojang.js'),
         BMCLAPI: require('./lib/downloader/BMCLAPI.js'),
         LiteLoader: require('./lib/downloader/LiteLoader.js'),
         Java: require('./lib/downloader/Java.js')
