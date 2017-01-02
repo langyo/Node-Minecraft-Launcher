@@ -3,17 +3,14 @@
 一个使用Node.js编写的Minecraft启动模块
 
 ## 项目地址:
----
 
 [https://coding.net/u/ncbql/p/minecraft-launcher/git](https://coding.net/u/ncbql/p/minecraft-launcher/git)
 
 ## 安装模块:
----
 
     $ npm install --save minecraft-launcher
 
 ## 引入模块:
----
 
 ```javascript
 const mclauncher = require('minecraft-launcher')
@@ -25,12 +22,10 @@ co(function* () {
 ```
 
 ## API:
----
 
 ### yield mclauncher([配置])
----
 ### yield mclauncher([Java路径], [根目录], [监听器])
----
+***
 
 #### 配置:
 
@@ -60,14 +55,14 @@ event (event) { // 监听器，可选
 ```
 
 ### mclauncher.offline(游戏名)
----
+***
 离线登录器
 
 #### 游戏名:
 玩家的游戏名
 
 ### mclauncher.yggdrasil(邮箱, 密码, [地址])
----
+***
 正版登录器
 
 #### 邮箱:
@@ -80,20 +75,19 @@ event (event) { // 监听器，可选
 登陆地址，可选
 
 ### yield core.load(版本号)
----
+***
 获取一个版本的数据，用于填入core.launch()
 
 #### 版本号:
 游戏的版本号
 
 ### yield core.loadAll()
----
+***
 获取一个全部版本的数据，返回一个数组
 
 ### yield core.launch(配置)
----
 ### yield core.launch([版本], [登录器])
----
+***
 
 #### 配置:
 ```javascript
@@ -121,7 +115,7 @@ event (event) { // 监听器，可选
 ```
 
 ## 协议:
----
+
 - [LGPL-3.0](./LICENSE)
 - [BeeStudio](https://jq.qq.com/?_wv=1027&k=43GuWwq)
 
