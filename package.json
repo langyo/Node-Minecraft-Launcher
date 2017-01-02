@@ -1,30 +1,35 @@
 {
   "name": "minecraft-launcher",
-  "version": "0.8.1",
-  "description": "A Node.js prepared by the Minecraft boot module",
-  "author": "ncbql",
-  "maintainers": [
-    "ncbql <764798966@qq.com>"
-  ],
+  "version": "1.0.0",
+  "description": "一个由NodeJS编写的Minecraft启动模块",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "https://git.coding.net/ncbql/minecraft-launcher.git"
+    "url": "http://mengb.net/coding.php/minecraft-launcher"
   },
-  "license": "LGPL-2.0",
   "keywords": [
     "minecraft",
     "launcher"
   ],
-  "main": "./main.js",
-  "scripts": {
-    "install": "node test"
-  },
+  "author": "ncbql",
+  "license": "LGPL-3.0",
   "dependencies": {
-    "node-fetch": "~1.6.3",
-    "co-fs": "~1.2.0",
-    "co-exec": "~1.1.0",
-    "adm-zip": "~0.4.7",
-    "node-targz": "~0.2.0",
-    "uuid-by-string": "~0.1.1"
+    "adm-zip": "^0.4.7",
+    "co": "^4.6.0",
+    "co-exec": "^1.1.0",
+    "co-fs": "^1.2.0",
+    "node-fetch": "^1.6.3",
+    "request": "^2.79.0",
+    "uuid-by-string": "^0.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1"
   }
 }
