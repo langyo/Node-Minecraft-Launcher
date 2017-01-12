@@ -29,8 +29,8 @@ co(function* () {
 
 #### 配置:
 
-```javascript
-{
+```json
+var conf = {
   root: '.minecraft', // 游戏根目录，可选
   java: java地址, // Java地址，可选
   event (event) {} // 监听器，可选
@@ -39,8 +39,10 @@ co(function* () {
 
 #### 监听器:
 
+`Log` 事件推荐使用 `iconv-lite` 模块进行转码
+
 ```javascript
-event (event) { // 监听器，可选
+event = event => { // 监听器，可选
   event.on('auth', () => {}) // 接收登陆事件
     .on('error_auth', () => {}) // 接收登陆失败事件
     .on('unzip', () => {}) // 接收解压Natives事件
@@ -90,8 +92,9 @@ event (event) { // 监听器，可选
 ***
 
 #### 配置:
+
 ```javascript
-{
+var opts = {
   version: yield core.load('1.10.2'), // 需要启动的版本
   // 以下均为可选参数
   authenticator: mclauncher.offline('Steve'), // 离线登录
@@ -113,6 +116,40 @@ event (event) { // 监听器，可选
   agentPath: 'agent.jar' // Java代理
 }
 ```
+
+## 命令行:
+
+### 安装模块
+
+    $ npm install -g minecraft-launcher
+
+### 帮助信息
+
+```
+  $ mclauncher -h
+
+  Usage: mclauncher <游戏版本> [参数]
+
+  Options:
+
+    -h, --help            显示相关帮助，即当前界面
+    -V, --version         显示当前安装的minecraft-launcher版本
+    -r, --root            游戏根目录
+    -u, --username <str>  你的游戏名
+    -e, --email <str>     你的正版邮箱
+    -m, --memory <int>    游戏最大内存
+    -s, --save            保存游戏账户信息
+    -c, --clean           清除游戏账户信息
+    -j, --java <str>      JAVA路径
+    -a, --address <str>   游戏进入后自动进入的服务器IP
+    -p, --port <str>      游戏进入后自动进入的服务器端口
+    -f, --full            全屏游戏
+    -l, --log             不显示log
+```
+
+### 快捷启动游戏:
+
+    $ mclauncher 1.8.8
 
 ## 协议:
 
