@@ -136,13 +136,14 @@ var opts = {
     -V, --version         显示当前安装的minecraft-launcher版本
     -r, --root            游戏根目录
     -u, --username <str>  你的游戏名
+    -p, --password <str>  你的正版密码
     -e, --email <str>     你的正版邮箱
     -m, --memory <int>    游戏最大内存
     -s, --save            保存游戏账户信息
     -c, --clean           清除游戏账户信息
     -j, --java <str>      JAVA路径
     -a, --address <str>   游戏进入后自动进入的服务器IP
-    -p, --port <str>      游戏进入后自动进入的服务器端口
+    -o, --port <int>      游戏进入后自动进入的服务器端口
     -f, --full            全屏游戏
     -l, --log             不显示log
 ```
