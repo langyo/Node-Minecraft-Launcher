@@ -1,6 +1,6 @@
 {
   "name": "minecraft-launcher",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "一个由NodeJS编写的Minecraft启动模块",
   "main": "index.js",
   "scripts": {
