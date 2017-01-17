@@ -6,26 +6,25 @@
 
 [https://coding.net/u/ncbql/p/minecraft-launcher/git](https://coding.net/u/ncbql/p/minecraft-launcher/git)
 
-## 老版本版本 (使用co模块):
-
-[README](./OLD_README.md)
-
 ## 安装模块:
 
-    $ npm install --save minecraft-launcher
+    $ npm install --save minecraft-launcher@1.1.2
 
 ## 引入模块:
 
 ```javascript
-import MCLauncher from 'minecraft-launcher'
-
-var core = new MCLauncher()
+const mclauncher = require('minecraft-launcher')
+const co = require('co')
+co(function* () {
+  var core = yield mclauncher()
+  // 请将相关代码放置于此
+})
 ```
 
 ## API:
 
-### new MCLauncher([配置])
-### new MCLauncher([Java路径], [根目录], [监听器])
+### yield mclauncher([配置])
+### yield mclauncher([Java路径], [根目录], [监听器])
 ***
 
 #### 配置:
@@ -34,7 +33,6 @@ var core = new MCLauncher()
 var conf = {
   root: '.minecraft', // 游戏根目录，可选
   java: java地址, // Java地址，可选
-  env: true, // 直接从环境变量读取java地址，可选
   event (event) {} // 监听器，可选
 }
 ```
@@ -58,14 +56,14 @@ event = event => { // 监听器，可选
 }
 ```
 
-### new MCLauncher.Offline(游戏名)
+### mclauncher.offline(游戏名)
 ***
 离线登录器
 
 #### 游戏名:
 玩家的游戏名
 
-### new MCLauncher.Yggdrasil(邮箱, 密码, [地址])
+### mclauncher.yggdrasil(邮箱, 密码, [地址])
 ***
 正版登录器
 
@@ -78,34 +76,29 @@ event = event => { // 监听器，可选
 #### 地址:
 登陆地址，可选
 
-### MCLauncher.Authenticator
+### yield core.load(版本号)
 ***
-自己编写登录器时推荐继承此类
+获取一个版本的数据，用于填入core.launch()
 
-### MCLauncher.Tools
+#### 版本号:
+游戏的版本号
+
+### yield core.loadAll()
 ***
-工具类，包含寻找Java等方法
+获取一个全部版本的数据，返回一个数组
 
-### await getVersions()
-***
-获取全部版本名，返回一个数组
-
-### await getEmtter()
-***
-返回当前监听器
-
-### await core.launch(配置)
-### await core.launch([版本], [登录器])
+### yield core.launch(配置)
+### yield core.launch([版本], [登录器])
 ***
 
 #### 配置:
 
 ```javascript
 var opts = {
-  version: '1.10.2', // 需要启动的版本名
+  version: yield core.load('1.10.2'), // 需要启动的版本
   // 以下均为可选参数
-  authenticator: new MCLauncher.Offline('Steve'), // 离线登录
-  authenticator: new MCLauncher.Yggdrasil('10000@qq.com', '123456'), // 正版登陆
+  authenticator: mclauncher.offline('Steve'), // 离线登录
+  authenticator: loadAll.yggdrasil('10000@qq.com', '123456'), // 正版登陆
   versionType: 'minecraft-launcher', // MC主界面游戏版本右边的文字
   maxMemory: 1024, // 最大内存
   minMemory: 512, // 最小内存
@@ -128,7 +121,7 @@ var opts = {
 
 ### 安装模块
 
-    $ npm install -g minecraft-launcher
+    $ npm install -g minecraft-launcher@1.1.2
 
 ### 帮助信息
 
