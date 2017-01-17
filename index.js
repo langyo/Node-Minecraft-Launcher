@@ -1,3 +1,3 @@
-module.exports = require('./lib/core.js')
-module.exports.offline = require('./lib/authenticator/offline.js')
-module.exports.yggdrasil = require('./lib/authenticator/yggdrasil.js')
+export default from './lib/core.js'
+export Offline from './lib/authenticator/offline.js'
+export Yggdrasil from './lib/authenticator/yggdrasil.js'

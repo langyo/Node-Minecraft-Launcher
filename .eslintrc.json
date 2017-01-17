@@ -1,21 +1,21 @@
 {
-    "extends": [
-        "standard"
-    ],
-    "installedESLint": true,
-    "env": {
-        "node": true
-    },
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-            "jsx": false
-        }
-    },
-    "parser": "babel-eslint",
-    "plugins": [
-        "standard",
-        "promise"
-    ]
+  "extends": [
+    "standard"
+  ],
+  "installedESLint": true,
+  "env": {
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": false
+    }
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "standard",
+    "promise"
+  ]
 }
