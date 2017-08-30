@@ -1,5 +1,6 @@
-export default from './lib/core.js'
-export Offline from './lib/authenticator/offline.js'
-export Yggdrasil from './lib/authenticator/yggdrasil.js'
-export Authenticator from './lib/authenticator/authenticator.js'
-export Tools from './lib/tools.js'
+const core = require('./lib/index')
+core.Offline = require('./lib/authenticator/offline')
+core.Yggdrasil = require('./lib/authenticator/yggdrasil')
+core.Tools = require('./lib/tools')
+
+module.exports = core

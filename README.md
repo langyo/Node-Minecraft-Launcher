@@ -1,14 +1,10 @@
 # minecraft-launcher [![tnpm](http://npm.taobao.org/badge/v/minecraft-launcher.svg?style=flat-square)](http://npm.taobao.org/package/minecraft-launcher) [![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-一个使用Node.js编写的Minecraft启动模块
+一个使用 Node.js 编写的Minecraft启动模块
 
 ## 项目地址:
 
 [https://coding.net/u/ncbql/p/minecraft-launcher/git](https://coding.net/u/ncbql/p/minecraft-launcher/git)
-
-## 老版本版本 (使用co模块):
-
-[README](./OLD_README.md)
 
 ## 安装模块:
 
@@ -16,10 +12,10 @@
 
 ## 引入模块:
 
-```javascript
-import MCLauncher from 'minecraft-launcher'
+```js
+const MCLauncher = require('minecraft-launcher')
 
-var core = new MCLauncher()
+const core = new MCLauncher()
 ```
 
 ## API:
@@ -30,12 +26,13 @@ var core = new MCLauncher()
 
 #### 配置:
 
-```json
-var conf = {
+```js
+const conf = {
   root: '.minecraft', // 游戏根目录，可选
   java: java地址, // Java地址，可选
   env: true, // 直接从环境变量读取java地址，可选
-  event (event) {} // 监听器，可选
+  event (event) {}, // 监听器，可选
+  unpack (Natives解压路径, 欲解压文件, 文件过滤器) // 自定义解压器, 返回需要解压的全部文件名, 可选, 默认使用 Adm-Zip 模块解压
 }
 ```
 
@@ -43,8 +40,8 @@ var conf = {
 
 `Log` 事件推荐使用 `iconv-lite` 模块进行转码
 
-```javascript
-event = event => { // 监听器，可选
+```js
+const event = event => { // 监听器，可选
   event.on('auth', () => {}) // 接收登陆事件
     .on('error_auth', () => {}) // 接收登陆失败事件
     .on('unzip', () => {}) // 接收解压Natives事件
@@ -58,14 +55,14 @@ event = event => { // 监听器，可选
 }
 ```
 
-### new MCLauncher.Offline(游戏名)
+### MCLauncher.offline(游戏名)
 ***
 离线登录器
 
 #### 游戏名:
 玩家的游戏名
 
-### new MCLauncher.Yggdrasil(邮箱, 密码, [地址])
+### MCLauncher.yggdrasil(邮箱, 密码, [地址])
 ***
 正版登录器
 
@@ -77,10 +74,6 @@ event = event => { // 监听器，可选
 
 #### 地址:
 登陆地址，可选
-
-### MCLauncher.Authenticator
-***
-自己编写登录器时推荐继承此类
 
 ### MCLauncher.Tools
 ***
@@ -100,12 +93,13 @@ event = event => { // 监听器，可选
 
 #### 配置:
 
-```javascript
-var opts = {
+```js
+const opts = {
   version: '1.10.2', // 需要启动的版本名
   // 以下均为可选参数
-  authenticator: new MCLauncher.Offline('Steve'), // 离线登录
-  authenticator: new MCLauncher.Yggdrasil('10000@qq.com', '123456'), // 正版登陆
+  authenticator: MCLauncher.offline('Steve'), // 离线登录
+  authenticator: MCLauncher.yggdrasil('10000@qq.com', '123456'), // 正版登陆
+  authenticator: { displayName: '游戏名', uuid: 'UUID' },
   versionType: 'minecraft-launcher', // MC主界面游戏版本右边的文字
   maxMemory: 1024, // 最大内存
   minMemory: 512, // 最小内存
@@ -162,6 +156,4 @@ var opts = {
 ## 协议:
 
 - [LGPL-3.0](./LICENSE)
-- [BeeStudio](https://jq.qq.com/?_wv=1027&k=43GuWwq)
-
-# Enjoy!
+- 最终解释权归 [Apisium](https://jq.qq.com/?_wv=1027&k=43GuWwq) 所属
