@@ -112,9 +112,14 @@ const opts = {
     height: 768, // 宽
     width: 1280 // 高
   },
+  launcherName: 'MCLauncher', // 启动器名
+  launcherVersion: '3.1.0', // 启动器版本
   advencedArguments: [], // Java虚拟机参数
   cgcEnabled: true, // 开启GC，默认/推荐开启
-  agentPath: 'agent.jar' // Java代理
+  agentPath: 'agent.jar', // Java代理
+  features: { // 开启的特殊参数
+    is_demo_user: true
+  }
 }
 ```
 
