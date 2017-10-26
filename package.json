@@ -1,10 +1,11 @@
 {
   "name": "minecraft-launcher",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "一个由NodeJS编写的Minecraft启动模块",
   "main": "index.js",
   "scripts": {
-    "test": "eslint lib index.js mclauncher.js"
+    "test": "eslint lib index.js mclauncher.js",
+    "precommit": "npm test"
   },
   "bin": {
     "mclauncher": "mclauncher.js"
@@ -22,19 +23,21 @@
   "dependencies": {
     "adm-zip": "^0.4.7",
     "arch": "^2.1.0",
-    "chalk": "^2.1.0",
+    "chalk": "^2.3.0",
     "commander": "^2.11.0",
-    "fs-extra": "^4.0.1",
-    "iconv-lite": "^0.4.18",
-    "node-fetch": "^1.7.2",
-    "uuid-by-string": "^0.2.2"
+    "fs-extra": "^4.0.2",
+    "iconv-lite": "^0.4.19",
+    "node-fetch": "^1.7.3",
+    "uuid-by-string": "^0.3.0"
   },
   "devDependencies": {
-    "eslint": "^4.5.0",
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.9.0",
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3"
   }
 }
