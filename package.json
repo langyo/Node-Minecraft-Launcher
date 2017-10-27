@@ -1,8 +1,11 @@
 {
   "name": "minecraft-launcher",
-  "version": "3.1.0",
-  "description": "一个由NodeJS编写的Minecraft启动模块",
+  "version": "3.2.0",
   "main": "index.js",
+  "author": "Shirasawa",
+  "license": "LGPL-3.0",
+  "typings": "index.d.ts",
+  "description": "一个由NodeJS编写的Minecraft启动模块",
   "scripts": {
     "test": "eslint lib index.js mclauncher.js",
     "precommit": "npm test"
@@ -18,9 +21,8 @@
     "minecraft",
     "launcher"
   ],
-  "author": "ncbql",
-  "license": "LGPL-3.0",
   "dependencies": {
+    "@types/node": "^8.0.47",
     "adm-zip": "^0.4.7",
     "arch": "^2.1.0",
     "chalk": "^2.3.0",
